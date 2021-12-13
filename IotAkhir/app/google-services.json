@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "392154147659",
+    "firebase_url": "https://tugas-akhir-iot-b307d-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "tugas-akhir-iot-b307d",
+    "storage_bucket": "tugas-akhir-iot-b307d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392154147659:android:bf1600bf396054123796ce",
+        "android_client_info": {
+          "package_name": "id.ac.ukdw.iotakhir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392154147659-avf1m0e3h1rif43r2eq7u2vm50ksvoc9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw2VgqAA5eBUOVavDZFA1V0h3rp5sElIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392154147659-avf1m0e3h1rif43r2eq7u2vm50ksvoc9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
