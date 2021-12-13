@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             val user_name = et_user_name.text.toString()
             val password = et_password.text.toString()
             if (password == "admin"){
-                val i = Intent(this, AdminActivity::class.java)
+                val i = Intent(this, MonitorActivity::class.java)
                 i.putExtra("username", user_name.toString())
                 startActivity(i);
             }

@@ -11,9 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IotAkhir">
         <activity
-            android:name=".MonitorActivity"
-            android:exported="true" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -23,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AdminActivity" />
+        <activity android:name=".MonitorActivity" />
     </application>
 
 </manifest>
