@@ -6,10 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 
 class MonitorActivity : AppCompatActivity() {
-
 
     val uidListGate = ArrayList<String>()
     val employeeList = ArrayList<Employee>()
@@ -18,9 +19,9 @@ class MonitorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_monitor)
-        val txt1 = findViewById<TextView>(R.id.txt1)
-        val txt2 = findViewById<TextView>(R.id.txt2)
-        val txt3 = findViewById<TextView>(R.id.txt3)
+//        val txt1 = findViewById<TextView>(R.id.txt1)
+//        val txt2 = findViewById<TextView>(R.id.txt2)
+//        val txt3 = findViewById<TextView>(R.id.txt3)
         var btn = findViewById<Button>(R.id.button2)
 
         btn.setOnClickListener {
@@ -32,10 +33,10 @@ class MonitorActivity : AppCompatActivity() {
             startActivity(i);
         }
     }
-    fun getEmployee(){
+    fun getEmployee() {
         val firebase = FirebaseDatabase.getInstance().getReference("Access")
 
-        firebase.addValueEventListener(object :ValueEventListener{
+        firebase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                 val uidListAccess = ArrayList<String>()
@@ -46,13 +47,28 @@ class MonitorActivity : AppCompatActivity() {
                 }
 
                 //mencari masing masing timestamp yang berbeda kemudian memasukkan kedalam uidlist
-                for (i in 0 .. (uidListAccess.size-1)) {
-                    val Driver = dataSnapshot.child("${uidListAccess[i]}/Driver").getValue().toString()
-                    val Registration = dataSnapshot.child("${uidListAccess[i]}/Registration").getValue().toString()
-                    val Transport = dataSnapshot.child("${uidListAccess[i]}/Transport").getValue().toString()
-                    val isAuthorized = dataSnapshot.child("${uidListAccess[i]}/isAuthorized").getValue().toString()
+                for (i in 0..(uidListAccess.size - 1)) {
+                    val Driver =
+                        dataSnapshot.child("${uidListAccess[i]}/Driver").getValue().toString()
+                    val Registration =
+                        dataSnapshot.child("${uidListAccess[i]}/Registration").getValue()
+                            .toString()
+                    val Transport =
+                        dataSnapshot.child("${uidListAccess[i]}/Transport").getValue()
+                            .toString()
+                    val isAuthorized =
+                        dataSnapshot.child("${uidListAccess[i]}/isAuthorized").getValue()
+                            .toString()
 
-                    employeeList.add(Employee(uidListAccess[i],Driver, Registration,Transport,isAuthorized))
+                    employeeList.add(
+                        Employee(
+                            uidListAccess[i],
+                            Driver,
+                            Registration,
+                            Transport,
+                            isAuthorized
+                        )
+                    )
 
                     Log.d("Driver", "id: ${employeeList[i].Driver}")
                     Log.d("uid", "id: ${employeeList[i].uid}")
@@ -66,12 +82,12 @@ class MonitorActivity : AppCompatActivity() {
         })
     }
 
-    fun getData(){
+    fun getData() {
 
 
         val firebase = FirebaseDatabase.getInstance().getReference("Gate1")
 
-        firebase.addValueEventListener(object :ValueEventListener{
+        firebase.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
 
@@ -81,8 +97,9 @@ class MonitorActivity : AppCompatActivity() {
                 }
 
                 //mencari masing masing timestamp yang berbeda kemudian memasukkan kedalam uidlist
-                for (i in 0 .. (uidListGate.size-1)) {
-                    val gate1 = dataSnapshot.child("${uidListGate[i]}/TimeStamp").getValue().toString()
+                for (i in 0..(uidListGate.size - 1)) {
+                    val gate1 =
+                        dataSnapshot.child("${uidListGate[i]}/TimeStamp").getValue().toString()
                     timeStampList.add(gate1)
                     Log.d("lol", "id: ${uidListGate[i]} Timestamp: ${gate1}")
                 }
