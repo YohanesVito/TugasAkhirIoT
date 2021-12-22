@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">IotAkhir</string>
+    <string name="kendaraan">Kendaraan</string>
+    <string name="kartu_baru">Kartu Baru</string>
+    <string name="masukkan_uid_kartu">Masukkan uid kartu</string>
+    <string name="daftarkan">Daftarkan</string>
+    <string name="masukkan_nama_kendaraan">Masukkan nama kendaraan</string>
+    <string name="masukkan_nama_driver">Masukkan nama driver</string>
+    <string name="pendaftaran">Pendaftaran</string>
+    <string name="driver">Driver</string>
+    <string name="uid">uid</string>
 </resources>

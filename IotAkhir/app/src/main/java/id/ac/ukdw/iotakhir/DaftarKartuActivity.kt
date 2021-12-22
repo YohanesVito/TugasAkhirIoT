@@ -18,28 +18,21 @@ import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.util.*
 
-class AdminActivity : AppCompatActivity() {
-
-    lateinit var ref : DatabaseReference
+class DaftarKartuActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_admin)
+        setContentView(R.layout.activity_daftarkartu)
 
-//        val txt = findViewById<TextView>(R.id.textView)
-//        txt.text = username
-        //ref = FirebaseDatabase.getInstance("https://tugas-akhir-iot-b307d-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Access")
         var btnSave = findViewById<Button>(R.id.button)
 
         btnSave.setOnClickListener {
             savedata()
             Toast.makeText(this,"berhasil masukkan data",Toast.LENGTH_SHORT).show()
-
         }
-
-
     }
+
     @RequiresApi(Build.VERSION_CODES.O)
     private fun savedata() {
         val username = getIntent().getStringExtra("username")
@@ -49,13 +42,10 @@ class AdminActivity : AppCompatActivity() {
         val UID = id.text.toString()
         val time = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
         val currentDate = time.format(Date()).toString()
-        var regis = currentDate+" "+"by "+" "+username
+        var regis = currentDate+" "+"by"+" "+username
         FirebaseDatabase.getInstance("https://tugas-akhir-iot-b307d-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Access/"+UID+"/Driver").setValue(driver.text.toString())
         FirebaseDatabase.getInstance("https://tugas-akhir-iot-b307d-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Access/"+UID+"/Transport").setValue(transport.text.toString())
         FirebaseDatabase.getInstance("https://tugas-akhir-iot-b307d-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Access/"+UID+"/isAuthorized").setValue("true")
         FirebaseDatabase.getInstance("https://tugas-akhir-iot-b307d-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Access/"+UID+"/Registration").setValue(regis)
-
-
     }
-
 }
